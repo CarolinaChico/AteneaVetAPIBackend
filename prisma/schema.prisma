@@ -14,7 +14,7 @@ model Especie{
   id_especie Int @id  @default(autoincrement())
   nombre String
   clasificacion String
-  esperenza_vida Int
+  esperanza_vida Int
   peso_promedio Float
 }
 

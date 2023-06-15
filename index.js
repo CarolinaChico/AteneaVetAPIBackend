@@ -1,9 +1,9 @@
 const express=require("express");
-const AdminEspecie=require("./AdminEspecie")
+const AdminEspecie=require("./AdminEspecie");
 
 class AteneaVetAPI{
     constructor(){
-        this.puerto=3002;
+        this.puerto=3001;
 
         this.app=express();
         this.adminEspecie = new AdminEspecie();
@@ -11,15 +11,16 @@ class AteneaVetAPI{
         this.app.use(this.configurarCORS);
         this.app.use(express.json());
 
-        this.app.post("*/crear_Especie",(req,res)=>{this.adminEspecie.crearEspecie(req,res); });
-        this.app.get("*/listar_especie",(req,res)=>{this.adminEspecie.listarEspecie(req,res); });
+        this.app.post("/crear_especie",(req,res)=>{this.adminEspecie.crearEspecie(req,res); });
+        this.app.get("/listar_especie",(req,res)=>{this.adminEspecie.listarEspecie(req,res); });
         
     }
 
     configurarCORS(req, res, next){
-        res.header("Acess-Control-Allow-Origin","*");
-        res.header("Acess-Control-Allow-Methods","GET,POST");
-        res.header("Acess-Control-Allow-Header","Content-Type");
+        res.header("Access-Control-Allow-Origen", "*");
+        res.header("Access-Control-Allow-Methods", "GET, POST");
+        res.header("Access-Control-Allow-Headers", "Content-Type");
+        next();
     }
     iniciarServidor(){
         this.app.listen(this.puerto, ()=>{
