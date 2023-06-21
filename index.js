@@ -1,7 +1,7 @@
 const express=require("express");
 const AdminEspecie=require("./AdminEspecie");
 
-class AteneaVetAPI{
+class PeluVetAPI{
     constructor(){
         this.puerto=3001;
 
@@ -30,5 +30,5 @@ class AteneaVetAPI{
 
 }
 
-const ateneaVetAPI = new AteneaVetAPI();
-ateneaVetAPI.iniciarServidor();
+const peluVetAPI = new PeluVetAPI();
+peluVetAPI.iniciarServidor();
